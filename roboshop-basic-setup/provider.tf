@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
     bucket = "terraform-gvl"
-    key    = "ex2/terraform.tfstate"
+    key    = "roboshop-basic-setup/terraform.tfstate"
     region = "us-east-1"
   }
 }
