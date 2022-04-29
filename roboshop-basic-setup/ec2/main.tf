@@ -1,11 +1,9 @@
-resource "aws_instance" "sample" {
-  ami                    = "ami-0bb6af715826253bf"
+resource "aws_spot_instance_request" "cheap_worker" {
+  ami                    = data.aws_ami.ami.image_id
   instance_type          = "t3.micro"
-  vpc_security_group_ids = [aws_security_group.allow_tls.id]
-}
+  wait_for_fulfillment   = true
+  vpc_security_group_ids = [aws_security_group.allow_all.id]
 
-variable "sg" {}
-
-output "public_ip" {
-  value = aws_instance.sample.public_ip
-}
+  tags = {
+    Name = var.COMPONENT
+  }
