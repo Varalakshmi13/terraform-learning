@@ -1,4 +1,5 @@
 module "frontend" {
   source = "./ec2"
-  sg     = module.sg.sg_id
+  COMPONENT = "frontend"
+  APP_VERSION = 1.0.0
 }

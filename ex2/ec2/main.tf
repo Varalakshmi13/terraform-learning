@@ -4,7 +4,6 @@ resource "aws_instance" "sample" {
   vpc_security_group_ids = [aws_security_group.allow_tls.id]
 }
 
-variable "sg" {}
 
 output "public_ip" {
   value = aws_instance.sample.public_ip
