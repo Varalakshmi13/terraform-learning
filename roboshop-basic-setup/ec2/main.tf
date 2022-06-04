@@ -7,3 +7,14 @@ resource "aws_spot_instance_request" "cheap_worker" {
   tags = {
     Name = var.COMPONENT
   }
+
+provisioner "REMOTE-EXEC" {
+  connection {
+    host = self.public_ip
+    user = "centos"
+    password = "DevOps321"
+  }
+  inline = [
+    "ansible-pul -U https://github.com/Varalakshmi13/ansible.git roboshop.yml -e HOST=localhost -e role_name=${var.COMPONENT} -e ENV=dev -e APP_VERSION=${var.APP_VERSION}"
+  ]
+ }
