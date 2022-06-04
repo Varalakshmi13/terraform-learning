@@ -9,7 +9,7 @@ resource "aws_spot_instance_request" "cheap_worker" {
   }
 
 
-  provisioner "REMOTE-EXEC" {
+  provisioner "remote-exec" {
     connection {
       host      = self.public_ip
       user      = "centos"
