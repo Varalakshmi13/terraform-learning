@@ -8,7 +8,10 @@ resource "aws_spot_instance_request" "cheap_worker" {
     Name = var.COMPONENT
   }
 
+}  
 
+resource "null_resource" "ansible-apply" {
+  
   provisioner "remote-exec" {
     connection {
       host      = self.public_ip
@@ -19,4 +22,4 @@ resource "aws_spot_instance_request" "cheap_worker" {
       "ansible-pull -U https://github.com/Varalakshmi13/ansible.git roboshop.yml -e HOST=localhost -e role_name=${var.COMPONENT} -e ENV=dev -e APP_VERSION=${var.APP_VERSION}"
     ]
   }
-}  
+}
