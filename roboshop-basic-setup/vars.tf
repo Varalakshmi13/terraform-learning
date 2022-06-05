@@ -49,7 +49,7 @@ variable "ALL_COMPONENTS" {
       app_version = "1.0.0"
     }
     frontend = {
-      app_version = "1.0.0"
+      app_version = "1.0.2"
     }
   }
 }
