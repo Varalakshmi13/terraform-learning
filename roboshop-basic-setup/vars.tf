@@ -19,7 +19,7 @@ variable "APP_VERSION" {
     ]
 }
 
-VA==variable "ALL_COMPONENTS" {
+variable "ALL_COMPONENTS" {
     default = [
         {
             COMPONENT = "mongodb",
