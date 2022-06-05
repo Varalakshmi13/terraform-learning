@@ -4,3 +4,11 @@ variable "COMPONENTS" {
         "catalogue"
     ]
 }
+
+
+variable "APP_VERSION" {
+    default = [
+        "null",
+        "1.0.0"
+    ]
+}
