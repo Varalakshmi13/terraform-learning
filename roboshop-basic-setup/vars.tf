@@ -30,5 +30,6 @@ variable "ALL_COMPONENTS" {
         shipping = "1.0.0"
         rabbitmq = "null"
         payment = "1.0.0"
+        frontend = "1.0.2"
     }
 }
