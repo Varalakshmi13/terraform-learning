@@ -1,15 +1,15 @@
-# module "component" {
-#   count   = length(var.COMPONENTS)
-#   source = "./ec2"
-#   COMPONENT = var.COMPONENTS[count.index]
-#   APP_VERSION = var.APP_VERSION[count.index]
-# }
-
-resource "null_resource" "sample" {
-  count = length(var.ALL_COMPONENTS)
-  provisioner "local-exec" {
-    command = <<EOF
-    echo ${lookup(var.ALL_COMPONENTS[count.index], COMPONENT, null)}
-    EOF
-  }
+module "component" {
+  for_each = var.ALL_COMPONENTS
+  source = "./ec2"
+  COMPONENT = each.key
+  APP_VERSION = each.value
 }
+
+# resource "null_resource" "sample" {
+#   count = length(var.ALL_COMPONENTS)
+#   provisioner "local-exec" {
+#     command = <<EOF
+#     echo ${lookup(var.ALL_COMPONENTS[count.index], COMPONENT, null)}
+#     EOF
+#   }
+# }
