@@ -20,9 +20,8 @@ variable "APP_VERSION" {
 }
 
 variable "ALL_COMPONENTS" {
-    default = [
+    default = {
         mongodb = "null"
         catalogue = "1.0.0"
-
-    ]
+    }
 }
