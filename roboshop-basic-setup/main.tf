@@ -9,7 +9,7 @@ resource "null_resource" "sample" {
   count = length(var.ALL_COMPONENTS)
   provisioner "local-exec" {
     command = <<EOF
-    echo ${element(var.ALL_COMPONENTS[count.index]}, COMPONENT)
+    echo ${lookup(var.ALL_COMPONENTS[count.index], COMPONENT, null)}
     EOF
   }
 }
