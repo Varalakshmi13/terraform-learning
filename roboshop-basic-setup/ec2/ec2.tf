@@ -20,3 +20,9 @@ resource "aws_spot_instance_request" "cheap_worker" {
     ]
   }
 }  
+
+resource "aws_ec2_tag" "tag" {
+  resource_id  = aws_spot_instance_request.cheap_worker.spot_instance_id
+  key          = "Name"
+  value        =  var.COMPONENT
+}
