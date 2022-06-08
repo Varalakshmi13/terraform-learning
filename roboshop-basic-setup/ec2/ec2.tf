@@ -13,7 +13,7 @@ resource "aws_spot_instance_request" "cheap_worker" {
 resource "null_resource" "null" {
   provisioner "remote-exec" {
     connection {
-      host      = self.public_ip
+      host      = aws_spot_instance_request.cheap_worker.public_ip
       user      = "centos"
       password  = "DevOps321"
     }
